@@ -1,0 +1,38 @@
+body{
+    padding: 100px;
+}
+.login-from{
+    padding: 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px #808080;
+}
+#transaction-area{
+    display: none;
+}
+.transation{
+    color: #fff;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 20px;
+}
+
+.transation p{
+  font-size: 36px;
+  font-weight: bold;
+}
+.blance{
+    background-color: rgba(161, 26, 105, 0.733);
+}
+.diposit{
+    background-color: rgba(48, 156, 84, 0.733);
+}
+.withdrow{
+    background-color: rgba(228, 216, 47, 0.863);
+}
+.amoutn-area{
+    margin: 30px;
+    padding: 50px;
+    box-shadow: 5px 5px 10px #808080;
+    border-radius: 20px;
+}

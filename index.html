@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-5.2.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Pioneer Bank</title>
+</head>
+<body>
+    <div id="login-area">
+        <h1 class="login-heading text-center">Wellcome to Pioneer Bank </h1>
+        <div class="login-from">
+            <h3 class="from-heading">Login</h3>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username"> <br>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">  <br>
+            <button class="btn btn-success" id="login">Login</button>                    
+         </div>        
+    </div>    
+    <div id="transaction-area">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="diposit transation">
+                    <h5>Diposit</h5>
+                    <p>$ <span id="currentDiposit">00</span></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="withdrow transation">
+                    <h5>Withdraw</h5>
+                    <p>$ <span id="currentWithdrow">00</span></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="blance transation">
+                    <h5>Balance</h5>
+                    <p>$<span id="currentBlance">1200</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="diposit-area amoutn-area">
+                    <h5>Diposit</h5>
+                    <input type="text" name="" id="dipositAmount" class="form-control" placeholder="$ Enter amount you went to diposit"><br>
+                    <button class="btn btn-success" id="dipositAdd">Diposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="withdrow-area amoutn-area">
+                    <h5>Withdraw</h5>
+                    <input type="text" name="" id="widthdrowAmount" class="form-control" placeholder="$ Enter amount you went to withdrow"><br>
+                    <button  class="btn btn-success" id="widthdrowAdd">Withdraw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        // login btn event handellar //
+     const loginBtn = document.getElementById("login");
+           loginBtn.addEventListener("click", function () {
+         
+            const loginArea = document.getElementById("login-area");
+                loginArea.style.display = "none";
+
+            const transationArea = document.getElementById("transaction-area");
+            transationArea.style.display = "block";    
+     })
+
+     // diposit btn event handellar //
+
+        const dipositBtn = document.getElementById("dipositAdd");
+        dipositBtn.addEventListener("click", function () {
+        const dipositNumaber = getInputNumber("dipositAmount");
+     
+        updateSpanText("currentDiposit" , dipositNumaber);
+        updateSpanText("currentBlance" , dipositNumaber);
+
+        document.getElementById("dipositAmount").value = "";
+     })
+
+     // withdrow btn cvent handelar//
+    const widthdrowBtn = document.getElementById("widthdrowAdd");
+    widthdrowBtn.addEventListener("click", function () {
+        const widthdrowNumber = getInputNumber("widthdrowAmount");
+        
+        updateSpanText("currentWithdrow", widthdrowNumber);
+        updateSpanText("currentBlance", -1* widthdrowNumber);
+
+        document.getElementById("widthdrowAmount").value = "";
+    })
+      
+     function getInputNumber(id) {
+        const amount = document.getElementById(id).value;
+        const amountNumber = parseFloat(amount);
+        return amountNumber;
+     }
+
+     function updateSpanText(id , dipositNumaber) {
+        const currentAmount = document.getElementById(id).innerText;
+        const currentNumbdr = parseFloat(currentAmount);
+        const tottal = dipositNumaber + currentNumbdr;
+        document.getElementById(id).innerText = tottal;
+     }
+        
+
+
+    </script>
+
+</body>
+</html>
